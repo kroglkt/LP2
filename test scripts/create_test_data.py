@@ -62,6 +62,6 @@ with open('data/modified/train_pairs.jsonl', 'w') as file:
         ',\n'.join(json.dumps(i) for i in pair_lines[:test_len]) +
         ']\n')
 
-print("done writing! ^_^)
+print("done writing! ^_^")
 
 
