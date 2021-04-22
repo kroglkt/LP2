@@ -48,3 +48,5 @@ for pair in train_text_x:
 
 print(vector_pairs[0])
 
+#https://direct.mit.edu/coli/article/41/3/481/1519/Computational-Constancy-Measures-of-Texts-Yule-s-K
+
