@@ -1,7 +1,8 @@
 #Remove imports, if redundant.
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.decomposition import PCA
+from sklearn.decomposition import PCA, TruncatedSVD
+import scipy
 
 def show_me_pca(vector, labels, is_pairs=False):
     '''Plot PCA for the two classes. Input is one long vector/list, it creates pairs itself.
@@ -18,8 +19,11 @@ def show_me_pca(vector, labels, is_pairs=False):
     if not is_pairs:
         vector = [np.hstack([vector[x],vector[x+1]]) for x in range(0,len(vector),2)]  
     
-    #GEt that PCA
-    pca = PCA(n_components=2)
+    #Get that PCA - Use SVD if vector is sparse.
+    if scipy.sparse.issparse(vector):
+        pca = TruncatedSVD(n_components=2)
+    else:
+        pca = PCA(n_components=2)
     pcs = pca.fit_transform(vector)
     
     #Printing pcs shape - remember they might be halved, due to pairing. 
