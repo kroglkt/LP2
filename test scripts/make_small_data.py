@@ -28,7 +28,7 @@ def load_files():
 
 def write_to_files(truth_lines, pair_lines): #Hardcoded files, delete content in them before running script.
 
-    pair_train, pair_test, label_train, label_test = train_test_split(pair_lines, truth_lines, train_size=0.5, test_size=0.15)
+    pair_train, pair_test, label_train, label_test = train_test_split(pair_lines, truth_lines, train_size=0.3, test_size=0.15)
 
     print("writing fanfic...",rand_emot())
     
